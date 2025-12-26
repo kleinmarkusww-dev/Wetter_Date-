@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wetterblick</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <header class="card__header">
+          <div>
+            <p class="eyebrow">{{ greeting }}</p>
+            <h1>Wetterblick</h1>
+            <p class="subtitle">Aktuelle Wetterdaten für deine Lieblingsorte.</p>
+          </div>
+          <div class="time">
+            <span>Stand</span>
+            <strong>{{ timestamp }}</strong>
+          </div>
+        </header>
+
+        <form class="search" method="get" action="/">
+          <label for="city">Ort suchen</label>
+          <div class="search__field">
+            <input
+              id="city"
+              name="city"
+              type="text"
+              placeholder="z. B. Hamburg"
+              value="{{ result.location }}"
+            />
+            <button type="submit">Aktualisieren</button>
+          </div>
+        </form>
+
+        {% if result.error %}
+        <div class="alert">
+          <strong>Ups!</strong> {{ result.error }}
+        </div>
+        {% else %}
+        <div class="weather">
+          <div>
+            <h2>{{ result.location }}</h2>
+            <p class="description">{{ description }}</p>
+          </div>
+          <div class="metric">
+            <span>Temperatur</span>
+            <strong>{{ "%.1f"|format(result.temperature) }} °C</strong>
+          </div>
+          <div class="metric">
+            <span>Wind</span>
+            <strong>{{ "%.1f"|format(result.wind_speed) }} km/h</strong>
+          </div>
+        </div>
+        {% endif %}
+
+        <footer class="footer">
+          Datenquelle: Open-Meteo · Kostenlos & ohne API-Key
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
