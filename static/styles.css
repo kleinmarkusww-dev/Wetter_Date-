@@ -1,0 +1,152 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(135deg, #e6f0ff, #fef6e4);
+  color: #1f2a44;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.card {
+  width: min(900px, 100%);
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 24px 60px rgba(31, 42, 68, 0.15);
+  display: grid;
+  gap: 2rem;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: #4b6ea8;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: #5f6f86;
+}
+
+.time {
+  background: #f3f6fb;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  display: grid;
+  gap: 0.25rem;
+  text-align: right;
+  color: #2f3e56;
+}
+
+.search label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.search__field {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search input {
+  flex: 1 1 220px;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid #d9e2f1;
+  font-size: 1rem;
+}
+
+.search button {
+  padding: 0.9rem 1.4rem;
+  border: none;
+  border-radius: 14px;
+  background: #2f6df6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(47, 109, 246, 0.3);
+}
+
+.alert {
+  background: #fff1f0;
+  color: #8a2a2a;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #f5c2c0;
+}
+
+.weather {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: center;
+}
+
+.description {
+  margin-top: 0.5rem;
+  color: #4b5c73;
+}
+
+.metric {
+  background: #f7f9fc;
+  padding: 1.2rem;
+  border-radius: 16px;
+  display: grid;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.metric span {
+  color: #6b7b91;
+}
+
+.metric strong {
+  font-size: 1.4rem;
+}
+
+.footer {
+  text-align: center;
+  color: #7b8ba3;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .time {
+    text-align: left;
+  }
+}
